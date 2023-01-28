@@ -463,6 +463,10 @@ impl Hash for AndroidApp {
 }
 
 impl AndroidApp {
+    pub fn native_activity(&self) -> *const ndk_sys::NativeActivity {
+        self.inner.read().unwrap().native_activity()
+    }
+
     /// Queries the current [`NativeWindow`] for the application.
     ///
     /// This will only return `Some(window)` between
